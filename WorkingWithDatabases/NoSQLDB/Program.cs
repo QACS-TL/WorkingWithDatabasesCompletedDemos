@@ -8,7 +8,7 @@ namespace NoSQLFilmReviews
     {
         static void Main(string[] args)
         {
-            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://demo-user:sTqTKzzKL5gm3YQh@cluster0.hgliefa.mongodb.net/?retryWrites=true&w=majority");
+            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://<user-name>:<password>h@cluster0.hgliefa.mongodb.net/?retryWrites=true&w=majority");
 
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
             var client = new MongoClient(settings);
@@ -104,6 +104,24 @@ namespace NoSQLFilmReviews
                 Overview = "A Wonkymotion remake of the original. Truly awe inspiring.",
                 ReleaseDate = new DateTime(2022, 04, 21),
                 HomepageURL = "https://www.youtube.com/watch?v=ENrgZ4KAnNw"
+            });
+
+            films.InsertOne(new Film
+            {
+                Id = 5,
+                Title = "Postman Pat in the Heist",
+                Overview = "Wonkymotion's most popular film by far!",
+                ReleaseDate = new DateTime(2023, 01, 21),
+                HomepageURL = "https://www.youtube.com/watch?v=VklXDDIeZKg"
+            });
+
+            films.InsertOne(new Film
+            {
+                Id = 6,
+                Title = "Rebel the Pebble",
+                Overview = "The first episode an a Wonkymotion series!",
+                ReleaseDate = new DateTime(2024, 04, 21),
+                HomepageURL = "https://www.youtube.com/watch?v=BW02PxdD574"
             });
 
             // Retrieve films and show revenue, even though some films don't have them
